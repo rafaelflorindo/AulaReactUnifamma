@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+         class Componente extends React.Component{
+            constructor(props){
+                super(props);
+
+                this.state={
+                    titulo: this.props.tituloInicial
+                }
+                //bind está chamando o método do botão, ou seja estamos ligando o state do botao
+                this.btn_clicar = this.btn_clicar.bind(this);
+            }
+            //evento do botão no onClick
+            btn_clicar(){
+                this.setState(
+                    {
+                        titulo: this.props.tituloFinal
+                    }
+                );
+                //console.log("teste");
+            }
+            render(){
+                return(
+                    <div>
+                        <p>{this.state.titulo}</p>
+                        <button onClick={this.btn_clicar}>ATUALIZAR</button>    
+                    </div>
+                )
+            }
+        }
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <Componente tituloInicial="Java" tituloFinal="Versão 14" />                  
+                        <hr />
+                        <Componente tituloInicial="HTML" tituloFinal="Versão 5" />                  
+                        <hr />
+                        <Componente tituloInicial="JS" tituloFinal="Versão ES6" />                  
+                        <hr />
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <App />,document.getElementById('app')
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

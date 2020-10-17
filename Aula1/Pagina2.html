@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 2</title>
+
+    <style type="text/css">
+        .caixa{
+            background: #3498db;
+            border: 1px solid red;
+            width: 300px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+       const root = document.getElementById('root')
+       
+       let nome = "Rafael";
+
+       ReactDOM.render(
+           <h3>Menu nome é {nome}</h3>,root 
+       );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

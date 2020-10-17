@@ -1,0 +1,33 @@
+.janela{
+    width: 80%;
+    padding: 0px;
+    border: 1px solid green;
+}
+.janela .titulo{
+    background-color: #FFE4C4;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid green;
+}
+.janela .titulo h2{
+    margin: 0px;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.janela .conteudo{
+    background-color: #ffffff;
+}
+.janela .conteudo p{
+    color: #000000;
+    padding: 5px;
+    text-align: justify;
+}
+button{
+    background-color: silver;
+    padding: 5px;
+    border: 1px solid goldenrod;
+    width: 100%;
+    font-weight: bold;
+}

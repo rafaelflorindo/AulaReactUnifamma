@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+ 
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        
+        class Janela extends React.Component{
+            constructor(){
+                super();                
+
+                this.state=
+                {
+                    titulo: "TESTE",
+                    conteudo: "React faz com que a criação de UIs interativas seja uma tarefa fácil. Crie views simples para cada estado na sua aplicação, e o React irá atualizar e renderizar de forma eficiente apenas os componentes necessários na medida em que os dados mudam."
+                }
+            }
+            render(){
+                return(
+                    <div className="janela">
+                        <div className="titulo">
+                            <h2>{this.state.titulo}</h2>
+                        </div>
+                        <div className="conteudo">
+                            <p>{this.state.conteudo}</p>
+                        </div>    
+                    </div>
+                )
+            }
+        }
+        
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <Janela />
+                    </div>
+                    
+                )
+            }
+        }
+        ReactDOM.render(
+            <App />,document.getElementById('app')
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

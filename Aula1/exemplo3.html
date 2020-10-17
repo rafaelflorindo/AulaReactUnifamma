@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        body{
+            background-color: #fff;        
+        }
+        .topo{
+            background: #808000;
+            padding: 0;
+            margin-top: 0;
+        }
+        .meio{
+            background: #BDB76B;
+            padding: 0;
+            margin-top: 0;
+        }
+        .rodape{
+            background: #B8860B;
+            color: #ffffff;
+            padding: 0;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class PaginaInicial extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <Topo />
+                        <Meio />
+                        <Rodape />
+                    </div>
+                );
+            }
+        }
+        class Topo extends React.Component{
+            render(){
+                return(
+                    <div className="topo">
+                        <h1>Topo</h1>                        
+                    </div>
+                );
+            }
+        }
+        class Meio extends React.Component{
+            render(){
+                return(
+                    <div className="meio">
+                        <p>Meio</p>                       
+                    </div>
+                );
+            }
+        }
+        class Rodape extends React.Component{
+            render(){
+                return(
+                    <div className="rodape">
+                        <p>Rodape</p>                        
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(
+            <PaginaInicial />,document.querySelector("#app")
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

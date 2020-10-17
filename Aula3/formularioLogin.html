@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+form{
+    width: 30%;
+    border: 1px dotted silver;
+    padding: 5px;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button, input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button, input[type=submit]:hover {
+  opacity: 0.8;
+}
+
+</style>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">   
+        class App extends React.Component{
+            constructor(){
+                super()
+                this.state={
+                    usuario: '',
+                    senha: '',
+                    status: 'Aguardando Autenticação'
+                }
+            }
+            alterarUsuario = e =>{
+                this.setState(
+                    {
+                        usuario: e.target.value
+                    }
+                )
+               // console.log(this.state.usuario)
+            }
+            alterarSenha = e =>{
+                this.setState(
+                    {
+                        senha: e.target.value
+                    }
+                )
+              //  console.log(this.state.usuario)
+            }
+            submeterForm = e =>{
+                console.log("Usuario" + this.state.usuario)
+                console.log("Senha" + this.state.senha)
+                e.preventDefault()//preventDefault - não faça a submissão do formulario pois a função esta realizando o tratamento
+
+                let user = 'rafael'
+                let senha = '123'
+
+                if(user == this.state.usuario && senha == this.state.senha){
+                    //.log("Autenticado")
+                    this.setState({status: 'Logado'})
+                }
+                else{
+                    //console.log("Erro de autenticado")
+                    this.setState({status: 'Erro'})
+                }     
+            }
+            render(){
+                return(
+                    <form onSubmit={this.submeterForm}> 
+                        <h2>Formulário Autenticação</h2>
+                        <input type="text" value={this.state.usuario} onChange={this.alterarUsuario} /><br />
+                        <input type="password" value={this.state.senha} onChange={this.alterarSenha} />
+                        <br />
+                        <input type="submit" value="Entrar"/>
+                        <button>Entrar 1</button>
+                        <p>Status: {this.state.status}</p>
+                    </form>  
+                )
+            }
+        }
+        ReactDOM.render(
+            <App />,document.getElementById('app')
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

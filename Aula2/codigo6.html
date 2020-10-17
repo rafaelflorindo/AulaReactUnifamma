@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class App extends React.Component{
+            constructor(){
+                super();
+
+                this.state = {
+                    tituloLivro:"PHP"
+                }
+            }
+            //similar ao uso do bind, só que de forma implicita
+            //aero function
+            btnAlterar=()=>{
+                this.setState({
+                    tituloLivro: "CSS"
+                })
+                console.log("oi");
+            }
+
+            render(){
+                return(
+                    <div>
+                       <p>Livro: {this.state.tituloLivro}</p>
+                       <button onClick={this.btnAlterar}>ALTERAR</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <App />,document.getElementById('app')
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+        //Componente pai - parent
+        class App extends React.Component{
+            constructor(){
+                super();
+
+                this.state ={
+                    tempoBom: false
+                }
+            }
+           
+            render(){
+                /*
+                if(this.state.tempoBom){
+                    return <p>O tempo está bom!!!</p>
+                }else{
+                    return <p>O tempo está mau!!!</p>
+                }
+                */
+
+                /*------- RETORNO COM VARIÁVEL -------------------*/
+                /*let texto
+                if(this.state.tempoBom){
+                    texto = <p>O tempo está bom!!!</p>
+                }else{
+                    texto = <p>O tempo está mau!!!</p>
+                }
+                return texto;
+                
+*/
+                /*------------- IF TERNÁRIO ---------------*/
+                
+                /*
+                return(
+                    this.state.tempoBom ? <p>O tempo está bom!!!</p> : <p>O tempo está mau!!!</p>
+                )
+                */
+                //return this.state.tempoBom && <p>O tempo está bom!!!</p>
+            }
+        }
+        ReactDOM.render(
+            <App />,document.getElementById('app')
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

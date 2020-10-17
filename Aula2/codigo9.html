@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+        //Componente pai - parent
+        class App extends React.Component{
+
+            metodo1(texto){
+                console.log(texto)
+            }
+            render(){
+                return(
+                    <div>
+                        <p>Componente Pai</p>
+                        {/*expor o método do pai para o filho*/}
+                       <ComponenteFilho1 evento={this.metodo1} />
+                    </div>
+                )
+            }
+        }
+        //ComponenteFilho1 - child passando valores para o método do pai
+        class ComponenteFilho1 extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <button onClick={()=>this.props.evento("Sexta - Feira")}>Clicar</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <App />,document.getElementById('app')
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+        //Componente pai - parent
+        class App extends React.Component{
+            render(){
+               /* {
+                    let aluno = ['Marcos', 'Katia', 'Dani'];
+                    console.log(aluno);
+                    
+                    //concatenar texto dentro da lista com uso da fução map que funciona como um loop
+                    let final = aluno.map(nome => 'Bom dia, ' + nome);
+                    console.log(final);
+                }
+                return(
+                    <div> </div>
+                )
+*/
+                //const alunos = ['Marcos', 'Aldo', 'Jeferson', 'Carlos', 'Katia', 'Dani']; 
+               /* 
+                return(
+                    <div>
+                        <h3>{alunos[0]}</h3>
+                        <h3>{alunos[1]}</h3>
+                        <h3>{alunos[2]}</h3>
+                        <h3>{alunos[3]}</h3>
+                        <h3>{alunos[4]}</h3>
+                        <h3>{alunos[5]}</h3>
+                    </div>
+                )
+               */
+               
+
+                /*
+                return(
+                    <div>
+                        {
+                            alunos.map(n => <span> {n} <hr /> </span>)
+                        }    
+                    </div>
+                )
+              
+              */
+                
+                /*
+                const final = alunos.map(n => <p>{n}</p>)
+                return(
+                    <div>
+                        {final}    
+                    </div>
+                )
+                */
+
+               const pessoas = [
+                   {
+                       nome: "Rafael",
+                       profissao: "Professor"
+                   },
+                   {
+                       nome: "Carlos",
+                       profissao: "Coordenador"
+                   },
+                   {
+                       nome: "Gustavo",
+                       profissao: "Professor"
+                   }
+               ]
+
+               const final = pessoas.map(pes => <p>{pes.nome} exerce a profissão de {pes.profissao} </p>)
+               return(
+                    <div>
+                        {final}    
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <App />,document.getElementById('app')
+        );    
+        
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

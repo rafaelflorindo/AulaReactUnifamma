@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+         class Noticia extends React.Component{
+            constructor(){
+                super();
+                
+                this.state={
+                    titulo: "Mensagem Original",
+                    descricao: "Descrição Original"
+                }
+                //bind está chamando o método do botão, ou seja estamos ligando o state do botao
+                this.btn_clicar = this.btn_clicar.bind(this);
+
+            }
+            //evento do botão no onClick
+            btn_clicar(){
+                this.setState(
+                    {
+                        titulo: "Urgente",
+                        descricao:"mega saldão"
+                    }
+                );
+                console.log("teste");
+            }
+            render(){
+                return(
+                    
+                    <div className="janela">
+                        <div className="titulo"><Titulo titulo={this.state.titulo} /></div>
+                        <div className="conteudo"><Descricao descricao={this.state.descricao} /></div>
+                        <button onClick={this.btn_clicar}>ATUALIZAR</button>    
+                    </div>
+                )
+            }
+        }
+        class Titulo extends React.Component{
+            render(){
+                return(
+                    <h2>{this.props.titulo}</h2>
+                )
+            }
+        }
+        class Descricao extends React.Component{
+            render(){
+                return (
+                    <p>{this.props.descricao}</p>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Noticia />,document.getElementById('app')
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

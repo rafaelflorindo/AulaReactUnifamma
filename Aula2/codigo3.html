@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+//componente pai passando valores para os componentes filhos via state.titulo
+         class Noticia extends React.Component{
+            constructor(){
+                super();
+                
+                this.state={
+                    titulo: "Feriado Nacional",
+                    descricao: "12 de outubro"
+                }
+            }
+            render(){
+                //alterar o valor
+                /*this.state.titulo = "Urgente";
+                this.state.descricao = "Feríado Amanhã";*/
+                return(
+                    <div className="janela">
+                        <div className="titulo"><Titulo titulo={this.state.titulo} /></div>
+                        <div className="conteudo"><Descricao descricao={this.state.descricao} /></div>
+                    </div>
+                )
+            }
+        }
+//componente filho recebendo via props
+        class Titulo extends React.Component{
+            render(){
+                return(
+                    <h2>{this.props.titulo}</h2>
+                )
+            }
+        }
+
+        class Descricao extends React.Component{
+            render(){
+                return (
+                    <p>{this.props.descricao}</p>
+                )
+            }
+        }
+
+       
+        ReactDOM.render(
+            <Noticia />,document.getElementById('app')
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>

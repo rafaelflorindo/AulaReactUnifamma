@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class App extends React.Component{
+            render(){
+                const noticias = [
+                    {
+                        titulo: "Empresa da França anuncia arma dedicada ao combate de drones",
+                        texto: "Recentemente, a empresa francesa Cerbair anunciou sua mais recente solução para o combate de drones ilegais. Chamado de \"Sistema Chimera\", a tecnologia promete forçar o pouso dos VANTs (Veículos aéreos não tripulados, da sigla em inglês UAV) sem expor pedestres civis ao risco de acidentes com sua queda. O equipamento tem uso dedicado aos militares e não teve preço especificado.",
+                        autor: "Adriano Camacho"
+                    },
+                    {
+                        titulo: "Casa tech: lâmpadas e tomadas inteligente em promoção",
+                        texto: "Modernidade do lar está totalmente ligado aos produtos smart, que trazem praticidade para as tarefas domésticas e conectividade de uma forma mais prática. Você pode controlar seus eletrodomésticos, agendar lembretes com os smart speakers, controlar a luminosidade e muito mais.",
+                        autor:"Equipe Tec Mundo"
+                    },
+                    {
+                        titulo: "As previsões tecnológicas mais 'furadas' no The New York Times",
+                        texto: "Com 169 anos de história, o The New York Times é um dos jornais mais importantes e respeitados do mundo. E no meio de tantas edições e reportagens, algumas previsões feitas no jornal se provaram furadas ao longo dos anos. Vamos conhecer 5 delas?",
+                        autor:"Gabriela Freire"
+                    }
+                ]
+                //preparando a coleção de noticias para o child
+                const saida = noticias.map(not => <Noticia noticia={not}/>)
+                //const saida = noticias.map(pessoa => <p>{pessoa.titulo} exerce a profissão de {pessoa.autor} </p>)
+                return(
+                    <div>
+                        <h2>Notícias</h2>
+                        <hr />   
+                        {saida}
+                        {/*<Noticia noticia={noticias[0]}/>
+                        <Noticia noticia={noticias[1]}/>
+                        <Noticia noticia={noticias[2]}/>*/}
+                    </div>
+                )
+            }
+        }
+
+        class Noticia extends React.Component{
+            constructor(props){
+                super(props)
+            }
+
+            render(){
+                return(
+                    <div className="janela">
+                        <div className="titulo"><h3>{this.props.noticia.titulo}</h3></div>    
+                        <div className="conteudo"><p>{this.props.noticia.texto}</p></div>
+                        <div className="footer"><small><i>{this.props.noticia.autor}</i></small></div>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <App />,document.getElementById('app')
+        );
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+</html>
